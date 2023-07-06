@@ -1,4 +1,4 @@
-import * as CourseActions from "./courseActions";
+import * as courseActions from "./courseActions";
 import * as types from "./actionTypes";
 import { courses } from "../../../tools/mockData";
 import thunk from "redux-thunk";
@@ -40,7 +40,7 @@ describe("createCourseSuccess", () => {
       course,
     };
 
-    const action = CourseActions.createCourseSuccess(course);
+    const action = courseActions.createCourseSuccess(course);
 
     expect(action).toEqual(expectedAction);
   });
