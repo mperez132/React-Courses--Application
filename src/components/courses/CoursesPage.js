@@ -31,11 +31,20 @@ class CoursesPage extends React.Component {
   }
 
   handleDeleteCourse = async (course) => {
-    toast.success("Course deleted!");
+    toast.warning("Course deleted!");
     try {
       await this.props.actions.deleteCourse(course);
     } catch (error) {
       toast.error("Delete failed. " + error.message, { autoClose: false });
+    }
+  };
+
+  handleEnrollCourse = async (course) => {
+    toast.success("Course Enrolled!");
+    try {
+      await this.props.actions.enrollCourse(course);
+    } catch (error) {
+      toast.error("Enrollement failed. " + error.message, { autoClose: false });
     }
   };
 
@@ -44,7 +53,10 @@ class CoursesPage extends React.Component {
       <>
         {this.state.redirectToAddCoursePage && <Redirect to="/course" />}
         <h2>Available Courses</h2>
-        <p>Here, you can find the courses offered.</p>
+        <p>
+          Here, you can find the courses offered. You can add, enroll, or delete
+          courses.{" "}
+        </p>
         <p></p>
         {this.props.loading ? (
           <Spinner />
@@ -59,8 +71,10 @@ class CoursesPage extends React.Component {
             </button>
             <CourseList
               onDeleteClick={this.handleDeleteCourse}
+              onEnrollClick={this.handleEnrollCourse}
               courses={this.props.courses}
             />
+            {/* //Add the onEnrollClick where we can add the course to another list. */}
           </>
         )}
       </>
@@ -98,6 +112,7 @@ function mapDispatchToProps(dispatch) {
       loadCourses: bindActionCreators(courseActions.loadCourses, dispatch),
       loadAuthors: bindActionCreators(authorActions.loadAuthors, dispatch),
       deleteCourse: bindActionCreators(courseActions.deleteCourse, dispatch),
+      enrollCourse: bindActionCreators(courseActions.enrollCourse, dispatch),
     },
   };
 }

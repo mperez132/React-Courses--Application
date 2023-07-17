@@ -1,3 +1,4 @@
+//import { enrollCourse } from "../redux/actions/courseActions";
 import { handleResponse, handleError } from "./apiUtils";
 // eslint-disable-next-line no-undef
 const baseUrl = process.env.API_URL + "/courses/";
@@ -17,6 +18,12 @@ export function saveCourse(course) {
 }
 
 export function deleteCourse(courseId) {
+  return fetch(baseUrl + courseId, { method: "DELETE" })
+    .then(handleResponse)
+    .catch(handleError);
+}
+
+export function enrollCourse(courseId) {
   return fetch(baseUrl + courseId, { method: "DELETE" })
     .then(handleResponse)
     .catch(handleError);

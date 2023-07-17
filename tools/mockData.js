@@ -5,6 +5,7 @@ const courses = [
     slug: "react-auth0-authentication-security",
     authorId: 1,
     category: "JavaScript",
+    enrolled: 0,
   },
   {
     id: 2,
@@ -12,6 +13,7 @@ const courses = [
     slug: "react-big-picture",
     authorId: 1,
     category: "JavaScript",
+    enrolled: 0,
   },
   {
     id: 3,
@@ -19,6 +21,7 @@ const courses = [
     slug: "react-creating-reusable-components",
     authorId: 1,
     category: "JavaScript",
+    enrolled: 0,
   },
   {
     id: 4,
@@ -26,6 +29,7 @@ const courses = [
     slug: "javascript-development-environment",
     authorId: 1,
     category: "JavaScript",
+    enrolled: 0,
   },
   {
     id: 5,
@@ -33,6 +37,7 @@ const courses = [
     slug: "react-redux-react-router-es6",
     authorId: 1,
     category: "JavaScript",
+    enrolled: 0,
   },
   {
     id: 6,
@@ -40,6 +45,7 @@ const courses = [
     slug: "react-flux-building-applications",
     authorId: 1,
     category: "JavaScript",
+    enrolled: 0,
   },
   {
     id: 7,
@@ -47,6 +53,7 @@ const courses = [
     slug: "writing-clean-code-humans",
     authorId: 1,
     category: "Software Practices",
+    enrolled: 0,
   },
   {
     id: 8,
@@ -54,6 +61,7 @@ const courses = [
     slug: "architecting-applications-dotnet",
     authorId: 1,
     category: "Software Architecture",
+    enrolled: 0,
   },
   {
     id: 9,
@@ -61,6 +69,7 @@ const courses = [
     slug: "career-reboot-for-developer-mind",
     authorId: 1,
     category: "Career",
+    enrolled: 0,
   },
   {
     id: 10,
@@ -68,6 +77,7 @@ const courses = [
     slug: "web-components-shadow-dom",
     authorId: 1,
     category: "HTML5",
+    enrolled: 0,
   },
 ];
 
@@ -82,6 +92,7 @@ const newCourse = {
   title: "",
   authorId: null,
   category: "",
+  enrolled: 0,
 };
 
 // Using CommonJS style export so we can consume via Node (without using Babel-node)
