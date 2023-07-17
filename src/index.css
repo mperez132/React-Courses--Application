@@ -1,8 +1,9 @@
-#app {
-  max-width: 850px;
-  margin: 0 auto;
+body {
+  background-color: #ffffff;
+  padding: 20px;
+  margin: 0;
 }
 
-nav {
-  padding: 20px 0 20px 0;
+li {
+  font-family: sans-serif;
 }

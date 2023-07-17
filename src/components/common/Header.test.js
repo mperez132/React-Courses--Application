@@ -5,16 +5,16 @@ import { MemoryRouter } from "react-router-dom";
 
 /* eslint-disable */
 
-it("contains 3 NavLinks via shallow", () => {
+it("contains 4 NavLinks via shallow", () => {
   const numLinks = shallow(<Header />).find("NavLink").length;
-  expect(numLinks).toEqual(3);
+  expect(numLinks).toEqual(4);
 });
 
-it("contains 3 anchors via mount", () => {
+it("contains 4 anchors via mount", () => {
   const numAnchors = mount(
     <MemoryRouter>
       <Header />
     </MemoryRouter>
   ).find("a").length;
-  expect(numAnchors).toEqual(3);
+  expect(numAnchors).toEqual(4);
 });
