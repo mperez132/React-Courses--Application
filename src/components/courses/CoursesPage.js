@@ -44,6 +44,8 @@ class CoursesPage extends React.Component {
       <>
         {this.state.redirectToAddCoursePage && <Redirect to="/course" />}
         <h2>Available Courses</h2>
+        <p>Here, you can find the courses offered.</p>
+        <p></p>
         {this.props.loading ? (
           <Spinner />
         ) : (
