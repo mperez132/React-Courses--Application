@@ -7,3 +7,7 @@ body {
 li {
   font-family: sans-serif;
 }
+
+button {
+  margin-right: 5px;
+}

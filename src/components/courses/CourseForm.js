@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import TextInput from "../common/TextInput";
 import SelectInput from "../common/SelectInput";
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
 const CourseForm = ({
   course,
@@ -19,9 +20,13 @@ const CourseForm = ({
           {errors.onSave}
         </div>
       )}
+      <Link to="/" className="btn btn-primary">
+        {" "}
+        Go back home
+      </Link>
       <TextInput
         name="title"
-        label="Title"
+        label="Course Title"
         value={course.title}
         onChange={onChange}
         error={errors.title}
@@ -47,7 +52,7 @@ const CourseForm = ({
         onChange={onChange}
         error={errors.category}
       />
-
+      <p></p>
       <button type="submit" disabled={saving} className="btn btn-primary">
         {saving ? "Saving..." : "Save"}
       </button>
