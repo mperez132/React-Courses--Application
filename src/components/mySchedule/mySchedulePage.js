@@ -37,11 +37,22 @@ class MySchedulePage extends React.Component {
     }
   };
 
+  handleunEnrollCourse = async (course) => {
+    toast.warning("Course Dropped");
+    try {
+      await this.props.actions.unEnrollCourse(course);
+    } catch (error) {
+      toast.error("Course Dropped failed. " + error.message, {
+        autoClose: false,
+      });
+    }
+  };
+
   render() {
     return (
       <>
         <MyScheduleList
-          onDeleteClick={this.handleDeleteCourse}
+          onunEnrollClick={this.handleunEnrollCourse}
           courses={this.props.courses}
         />
         {/* //Add the onEnrollClick where we can add the course to another list. */}
@@ -62,13 +73,15 @@ function mapStateToProps(state) {
     courses:
       state.authors.length === 0
         ? []
-        : state.courses.map((course) => {
-            return {
-              ...course,
-              authorName: state.authors.find((a) => a.id === course.authorId)
-                .name,
-            };
-          }),
+        : state.courses
+            .filter((course) => course.enrolled > 0)
+            .map((course) => {
+              return {
+                ...course,
+                authorName: state.authors.find((a) => a.id === course.authorId)
+                  .name,
+              };
+            }),
     authors: state.authors,
     loading: state.apiCallsInProgress > 0,
   };
@@ -80,6 +93,10 @@ function mapDispatchToProps(dispatch) {
       loadCourses: bindActionCreators(courseActions.loadCourses, dispatch),
       loadAuthors: bindActionCreators(authorActions.loadAuthors, dispatch),
       deleteCourse: bindActionCreators(courseActions.deleteCourse, dispatch),
+      unEnrollCourse: bindActionCreators(
+        courseActions.unEnrollCourse,
+        dispatch
+      ),
     },
   };
 }

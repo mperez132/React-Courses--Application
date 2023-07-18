@@ -94,13 +94,15 @@ function mapStateToProps(state) {
     courses:
       state.authors.length === 0
         ? []
-        : state.courses.map((course) => {
-            return {
-              ...course,
-              authorName: state.authors.find((a) => a.id === course.authorId)
-                .name,
-            };
-          }),
+        : state.courses
+            .filter((course) => course.enrolled < 1)
+            .map((course) => {
+              return {
+                ...course,
+                authorName: state.authors.find((a) => a.id === course.authorId)
+                  .name,
+              };
+            }),
     authors: state.authors,
     loading: state.apiCallsInProgress > 0,
   };

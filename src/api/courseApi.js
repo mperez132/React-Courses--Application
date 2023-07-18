@@ -29,7 +29,7 @@ export function enrollCourse(courseId) {
     .catch(handleError);
 }
 
-export function unenrollCourse(courseId) {
+export function unEnrollCourse(courseId) {
   return fetch(baseUrl + courseId, { method: "PUT" })
     .then(handleResponse)
     .catch(handleError);

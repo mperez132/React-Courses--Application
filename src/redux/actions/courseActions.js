@@ -22,7 +22,7 @@ export function enrollCourseOptimistic(course) {
   return { type: types.ENROLL_COURSE_OPTIMISTIC, course };
 }
 
-export function unenrollCourseOptimistic(course) {
+export function unEnrollCourseOptimistic(course) {
   return { type: types.UNENROLL_COURSE_OPTIMISTIC, course };
 }
 export function loadCourses() {
@@ -73,9 +73,9 @@ export function enrollCourse(course) {
   };
 }
 
-export function unenrollCourse(course) {
+export function unEnrollCourse(course) {
   return function (dispatch) {
-    dispatch(unenrollCourseOptimistic(course));
-    return courseApi.unenrollCourse(course.id);
+    dispatch(unEnrollCourseOptimistic(course));
+    return courseApi.unEnrollCourse(course.id);
   };
 }

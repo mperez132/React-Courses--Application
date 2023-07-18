@@ -37,7 +37,7 @@ const CourseList = ({ courses, onDeleteClick, onEnrollClick }) => (
                   className="btn btn-success"
                   onClick={() => onEnrollClick(course)}
                 >
-                  Enroll(Deletes)
+                  Enroll(Works?)
                 </button>
                 <button
                   className="btn btn-danger"

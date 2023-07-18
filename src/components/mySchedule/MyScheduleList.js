@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
-const MyScheduleList = ({ courses, onDeleteClick }) => (
+const MyScheduleList = ({ courses, onunEnrollClick }) => (
   <div className="schedule">
     <h2>My Enrolled Courses</h2>
     <p>Here, you can find the courses you enrolled in from the course page.</p>
@@ -41,9 +41,9 @@ const MyScheduleList = ({ courses, onDeleteClick }) => (
                 <td>
                   <button
                     className="btn btn-danger"
-                    onClick={() => onDeleteClick(course)}
+                    onClick={() => onunEnrollClick(course)}
                   >
-                    Delete
+                    Drop
                   </button>
                 </td>
               </tr>
@@ -55,7 +55,7 @@ const MyScheduleList = ({ courses, onDeleteClick }) => (
 );
 MyScheduleList.propTypes = {
   courses: PropTypes.array.isRequired,
-  onDeleteClick: PropTypes.func.isRequired,
+  onunEnrollClick: PropTypes.func.isRequired,
   //onEnrollClick: PropTypes.func.isRequired,
 };
 export default MyScheduleList;
