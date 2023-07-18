@@ -5,7 +5,7 @@ const courses = [
     slug: "react-auth0-authentication-security",
     authorId: 1,
     category: "JavaScript",
-    enrolled: 0,
+    enrolled: 1,
   },
   {
     id: 2,

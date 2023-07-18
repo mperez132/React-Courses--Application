@@ -21,7 +21,7 @@ const MyScheduleList = ({ courses, onDeleteClick }) => (
       </thead>
       <tbody>
         {courses
-          .filter((course) => course.enrolled > 1)
+          .filter((course) => course.enrolled > 0)
           .map((course) => {
             return (
               <tr key={course.id}>

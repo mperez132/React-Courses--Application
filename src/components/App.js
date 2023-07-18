@@ -3,7 +3,7 @@ import { Route, Switch } from "react-router-dom";
 import HomePage from "./home/HomePage";
 import AboutPage from "./about/AboutPage";
 import Header from "./common/Header";
-import MySchedulePage from "./mySchedule/MySchedulePage";
+import MySchedulePage from "./mySchedule/mySchedulePage";
 import PageNotFound from "./PageNotFound";
 import CoursesPage from "./courses/CoursesPage";
 import ManageCoursePage from "./courses/ManageCoursePage";

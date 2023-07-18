@@ -24,7 +24,13 @@ export function deleteCourse(courseId) {
 }
 
 export function enrollCourse(courseId) {
-  return fetch(baseUrl + courseId, { method: "DELETE" })
+  return fetch(baseUrl + courseId, { method: "PUT" })
+    .then(handleResponse)
+    .catch(handleError);
+}
+
+export function unenrollCourse(courseId) {
+  return fetch(baseUrl + courseId, { method: "PUT" })
     .then(handleResponse)
     .catch(handleError);
 }
