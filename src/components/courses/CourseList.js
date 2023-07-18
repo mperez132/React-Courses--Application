@@ -14,39 +14,41 @@ const CourseList = ({ courses, onDeleteClick, onEnrollClick }) => (
       </tr>
     </thead>
     <tbody>
-      {courses.map((course) => {
-        return (
-          <tr key={course.id}>
-            <td>
-              <a
-                className="btn btn-light"
-                href={"http://pluralsight.com/courses/" + course.slug}
-              >
-                Watch
-              </a>
-            </td>
-            <td>
-              <Link to={"/course/" + course.slug}>{course.title}</Link>
-            </td>
-            <td>{course.authorName}</td>
-            <td>{course.category}</td>
-            <td>
-              <button
-                className="btn btn-success"
-                onClick={() => onEnrollClick(course)}
-              >
-                Enroll(Deletes currently)
-              </button>
-              <button
-                className="btn btn-danger"
-                onClick={() => onDeleteClick(course)}
-              >
-                Delete
-              </button>
-            </td>
-          </tr>
-        );
-      })}
+      {courses
+        .filter((course) => course.enrolled < 1)
+        .map((course) => {
+          return (
+            <tr key={course.id}>
+              <td>
+                <a
+                  className="btn btn-light"
+                  href={"http://pluralsight.com/courses/" + course.slug}
+                >
+                  Watch
+                </a>
+              </td>
+              <td>
+                <Link to={"/course/" + course.slug}>{course.title}</Link>
+              </td>
+              <td>{course.authorName}</td>
+              <td>{course.category}</td>
+              <td>
+                <button
+                  className="btn btn-success"
+                  onClick={() => onEnrollClick(course)}
+                >
+                  Enroll(Deletes currently)
+                </button>
+                <button
+                  className="btn btn-danger"
+                  onClick={() => onDeleteClick(course)}
+                >
+                  Delete
+                </button>
+              </td>
+            </tr>
+          );
+        })}
     </tbody>
   </table>
 );
